@@ -139,7 +139,7 @@ contract Interaction is ERC721,Ownable{
             console.log((user.DepositTime+Lockingperiod),"This is the total period");
             console.log(Lockingperiod,"Locking Period");
             _burn(TokenId);
-            uint growth=user.Balance*(GrowthNum/GrowthDivisor);
+            uint growth=(user.Balance*GrowthNum)/GrowthDivisor;
             _token.mint(address(this),growth);
             _token.transfer(msg.sender,(user.Balance+growth));
         }
